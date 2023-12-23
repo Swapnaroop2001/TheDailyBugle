@@ -2,27 +2,57 @@ import React, { Component } from 'react'
 import NewsCard from './NewsCrad'
 
 export default class News extends Component {
-    articles = []
+
+    
     constructor() {
         super();
         this.state = {
-            A: this.articles
+            A:[],
+            page:1,
+            TR:0
         }
     }
 
+    
+
     async componentDidMount() {
-        let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=b79cc641fca24f60b82db250210a261d"
+        let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=b79cc641fca24f60b82db250210a261d&page=1&pagesize=16";
         let data = await fetch(url);
         let ParsedData = await data.json();
         console.log(ParsedData);
+        
         this.setState({
-            A: ParsedData.articles
+            A: ParsedData.articles,
+            TR:ParsedData.totalResults
         })
-
-
     }
 
+    
+    NextBtn = async ()=>{
+        console.log(this.state.TR/16);
+        
+        console.log("next");
+        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=b79cc641fca24f60b82db250210a261d&page=${this.state.page+1}&pagesize=16`;
+        let data = await fetch(url);
+        let ParsedData = await data.json();
+        this.setState({
+            A: ParsedData.articles,
+            page:this.state.page+1
+        })
+    }
 
+    PrevBtn = async ()=>{
+        console.log("prev");
+        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=b79cc641fca24f60b82db250210a261d&page=${this.state.page-1}&pagesize=16`;
+        let data = await fetch(url);
+        let ParsedData = await data.json();
+        this.setState({
+            A: ParsedData.articles,
+            page:this.state.page-1
+        })
+    }
+
+    
     render() {
         return (
             <div className='container'>
@@ -43,6 +73,13 @@ export default class News extends Component {
                         }
                     })}
                 </div>
+
+                <div className='container' style={{display:"flex", justifyContent:"space-between"}}>
+                <button type="button" className="btn btn-outline-dark btn-lg" disabled={this.state.page==1} onClick={this.PrevBtn}>Previous</button>
+                <button type="button" className="btn btn-outline-dark btn-lg" disabled={this.state.page==(Math.ceil(this.state.TR/16))} onClick={this.NextBtn}>Next page..</button>
+                </div>
+                
+                
             </div>
         )
     }

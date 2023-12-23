@@ -19,7 +19,6 @@ export default class News extends Component {
         let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=b79cc641fca24f60b82db250210a261d&page=1&pagesize=16";
         let data = await fetch(url);
         let ParsedData = await data.json();
-        console.log(ParsedData);
         
         this.setState({
             A: ParsedData.articles,
@@ -56,7 +55,6 @@ export default class News extends Component {
     render() {
         return (
             <div className='container'>
-                <h1 style={{ textAlign: "center" }}>Top Headlines</h1>
                 <div className='row'>
                     {this.state.A.map((Element) => {
                         if (Element.url == "https://removed.com") {

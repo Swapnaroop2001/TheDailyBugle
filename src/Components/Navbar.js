@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import {Link} from "react-router-dom";
 
 export default class Navbar extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -8,11 +10,6 @@ export default class Navbar extends Component {
         };
       }
 
-      ok=()=>{
-        console.log("hello");
-        
-      }
-    
       getFormattedDate() {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         return new Date().toLocaleDateString(undefined, options);
@@ -90,35 +87,35 @@ export default class Navbar extends Component {
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse " id="navbarNavDropdown" style={{justifyContent: "center" }}>
                                 <ul className="navbar-nav">
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link " href="/business" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item">
+                                        <Link className="nav-link " to="/business">
                                             Business
-                                        </a>
+                                        </Link>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link " href="/entertainment" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item">
+                                        <Link className="nav-link " to="/entertainment">
                                             Entertainment
-                                        </a>
+                                        </Link>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link " href="/Science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item">
+                                        <Link className="nav-link " to="/science">
                                             Science
-                                        </a>
+                                        </Link>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link " href="/Health" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item">
+                                        <Link className="nav-link " to="/health">
                                             Health
-                                        </a>
+                                        </Link>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link " href="/Sports" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item">
+                                        <Link className="nav-link " to="/sports">
                                             Sports
-                                        </a>
+                                        </Link>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link" href="/technology" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item">
+                                        <Link className="nav-link " to="/technology">
                                             Technology
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

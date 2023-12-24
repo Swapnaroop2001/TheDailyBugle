@@ -7,15 +7,24 @@ import {
   BrowserRouter as Router,
   RouterProvider,
   Route,
-  Link,
+  Routes
 } from "react-router-dom";
 
 export default class App extends Component {
   render() {
     return (
       <div>
+      <Router>
         <Navbar/>
-        <News category="sports"/>
+        <Routes><Route path='/' element={<News category="general"/>}/></Routes>
+        <Routes><Route path='/sports' element={<News category="sports"/>}/></Routes>
+        <Routes><Route path='/technology' element={<News category="technology"/>}/></Routes>
+        <Routes><Route path='/health' element={<News category="health"/>}/></Routes>
+        <Routes><Route path='/science' element={<News category="science"/>}/></Routes>
+        <Routes><Route path='/business' element={<News category="business"/>}/></Routes>
+        <Routes><Route path='/entertainment' element={<News category="entertainment"/>}/></Routes>
+]        
+      </Router>
       </div>
     )
   }

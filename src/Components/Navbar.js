@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
-          formattedDate: this.getFormattedDate()
+            formattedDate: this.getFormattedDate()
         };
-      }
+    }
 
-      getFormattedDate() {
+    getFormattedDate() {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         return new Date().toLocaleDateString(undefined, options);
-      }
+    }
 
     render() {
         return (
@@ -36,10 +36,7 @@ export default class Navbar extends Component {
                                             <button className="nav-link active" aria-current="page" href="#" onClick={this.ok}>United States</button>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="#">United Kingdom</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link active" href="#">India</a>
+                                            <button type="button" className="btn btn-outline-dark">India</button>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link active" href="#">Australia</a>
@@ -85,7 +82,7 @@ export default class Navbar extends Component {
                 <div>
                     <nav className="navbar navbar-expand-lg bg-body-light" style={{ fontFamily: "Newsreader" }}>
                         <div className="container-fluid">
-                            <div className="collapse navbar-collapse " id="navbarNavDropdown" style={{justifyContent: "center" }}>
+                            <div className="collapse navbar-collapse " id="navbarNavDropdown" style={{ justifyContent: "center" }}>
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
                                         <Link className="nav-link " to="/business">

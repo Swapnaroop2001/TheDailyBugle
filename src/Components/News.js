@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 
 export default class News extends Component {
 
-    static defaultProps={
-        country:"in",
-        category:'general'
+    static defaultProps = {
+        country: "in",
+        category: 'general'
     }
 
-    static propTypes={
-        country:PropTypes.string,
-        category:PropTypes.string
+    static propTypes = {
+        country: PropTypes.string,
+        category: PropTypes.string
     }
 
 
@@ -39,7 +39,7 @@ export default class News extends Component {
 
 
     NextBtn = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}&page=${this.state.page+1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -48,8 +48,8 @@ export default class News extends Component {
         })
         window.scrollTo({
             top: 0,
-            behavior: 'auto' // For smooth scrolling
-          });
+            behavior: 'auto'
+        });
     }
 
     PrevBtn = async () => {
@@ -62,8 +62,8 @@ export default class News extends Component {
         })
         window.scrollTo({
             top: 0,
-            behavior: 'auto' // For smooth scrolling
-          });
+            behavior: 'auto'
+        });
     }
 
 

@@ -6,6 +6,7 @@ export default class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            categories: [],
             formattedDate: this.getFormattedDate()
         };
     }
@@ -33,16 +34,13 @@ export default class Navbar extends Component {
                                 <div className="offcanvas-body">
                                     <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <li className="nav-item">
-                                            <button className="nav-link active" aria-current="page" href="#" onClick={this.ok}>United States</button>
+                                            <button className="nav-link active" aria-current="page" href="#" >United States</button>
                                         </li>
                                         <li className="nav-item">
-                                            <button type="button" className="btn btn-outline-dark">India</button>
+                                            <button className='button'>India</button>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="#">Australia</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link active" href="#">China</a>
+                                            <Link className="nav-link active" to="/china">China</Link>
                                         </li>
                                         <li className="nav-item dropdown">
                                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,7 +65,7 @@ export default class Navbar extends Component {
                             </div>
                         </div>
                     </nav>
-                </div>
+                </div> 
 
                 {/* Heading */}
                 <div style={{ justifyContent: "center" }}>
@@ -79,7 +77,7 @@ export default class Navbar extends Component {
                 </div>
 
                 {/* ThirdNav */}
-                <div>
+                 <div>
                     <nav className="navbar navbar-expand-lg bg-body-light" style={{ fontFamily: "Newsreader" }}>
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse " id="navbarNavDropdown" style={{ justifyContent: "center" }}>
@@ -119,7 +117,11 @@ export default class Navbar extends Component {
                         </div>
                     </nav>
                 </div>
+                
             </div>
+
+            
+
 
         )
     }

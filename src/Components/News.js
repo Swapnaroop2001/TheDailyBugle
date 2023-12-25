@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 
 export default class News extends Component {
 
+
     static defaultProps = {
-        country: "in",
+        country: "us",
         category: 'general'
     }
 
@@ -28,7 +29,7 @@ export default class News extends Component {
 
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -92,8 +93,6 @@ export default class News extends Component {
                     <button type="button" className="btn btn-outline-dark btn-lg" disabled={this.state.page === 1} onClick={this.PrevBtn}>Previous</button>
                     <button type="button" className="btn btn-outline-dark btn-lg" disabled={this.state.page === (Math.ceil(this.state.TR / 16))} onClick={this.NextBtn}>Next page..</button>
                 </div>
-
-
             </div>
         )
     }

@@ -7,12 +7,14 @@ export default class News extends Component {
 
     static defaultProps = {
         country: "us",
-        category: 'general'
+        category: 'general',
+        language:"en"
     }
 
     static propTypes = {
         country: PropTypes.string,
-        category: PropTypes.string
+        category: PropTypes.string,
+        language: PropTypes.string
     }
 
 
@@ -29,7 +31,7 @@ export default class News extends Component {
 
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -40,7 +42,7 @@ export default class News extends Component {
 
 
     NextBtn = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}&page=${this.state.page + 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -54,7 +56,7 @@ export default class News extends Component {
     }
 
     PrevBtn = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&category=${this.props.category}&page=${this.state.page - 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({

@@ -34,20 +34,29 @@ export default class Navbar extends Component {
                                 <div className="offcanvas-body">
                                     <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <li className="nav-item">
-                                            <button className="nav-link active" aria-current="page" href="#" >United States</button>
+                                            <Link className="nav-link active" aria-current="page" to="/gb" >United Kingdom</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <button className='button'>India</button>
+                                            <Link className="nav-link active" aria-current="page" to="/in" >India</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" to="/china">China</Link>
+                                            <Link className="nav-link active" aria-current="page" to="/de">Germany</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" to="/cn">China</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" to="/au">Australia</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" to="/sa">Saudi Arabia</Link>
                                         </li>
                                         <li className="nav-item dropdown">
                                             <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Languages
                                             </a>
                                             <ul className="dropdown-menu">
-                                                <li><a className="dropdown-item" href="#">Spanish</a></li>
+                                                <Link><a className="dropdown-item" to="/us/spanish">Spanish</a></Link>
                                                 <li><a className="dropdown-item" href="#">French</a></li>
                                                 <li><a className="dropdown-item" href="#">Chinese</a></li>
                                                 <li>
@@ -65,7 +74,7 @@ export default class Navbar extends Component {
                             </div>
                         </div>
                     </nav>
-                </div> 
+                </div>
 
                 {/* Heading */}
                 <div style={{ justifyContent: "center" }}>
@@ -77,50 +86,129 @@ export default class Navbar extends Component {
                 </div>
 
                 {/* ThirdNav */}
-                 <div>
+                <div>
                     <nav className="navbar navbar-expand-lg bg-body-light" style={{ fontFamily: "Newsreader" }}>
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse " id="navbarNavDropdown" style={{ justifyContent: "center" }}>
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="/business">
-                                            Business
-                                        </Link>
+                                    <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                US
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/us/technology">Technology</Link>
+                                                <Link className="nav-link" to="/us/health">Health</Link>
+                                                <Link className="nav-link" to="/us/science">Science</Link>
+                                                <Link className="nav-link" to="/us/sports">Sports</Link>
+                                                <Link className="nav-link " to="/us/business">Business</Link>
+                                                <Link className="nav-link" to="/us/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                India
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/in/technology">Technology</Link>
+                                                <Link className="nav-link" to="/in/health">Health</Link>
+                                                <Link className="nav-link" to="/in/science">Science</Link>
+                                                <Link className="nav-link" to="/in/sports">Sports</Link>
+                                                <Link className="nav-link " to="/in/business">Business</Link>
+                                                <Link className="dropdown-item" to="/in/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="/entertainment">
-                                            Entertainment
-                                        </Link>
+
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="/science">
-                                            Science
-                                        </Link>
+                                    <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                UK
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/gb/technology">Technology</Link>
+                                                <Link className="nav-link" to="/gb/health">Health</Link>
+                                                <Link className="nav-link" to="/gb/science">Science</Link>
+                                                <Link className="nav-link" to="/gb/sports">Sports</Link>
+                                                <Link className="nav-link " to="/gb/business">Business</Link>
+                                                <Link className="nav-link" to="/gb/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="/health">
-                                            Health
-                                        </Link>
+                                    <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Germany
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/de/technology">Technology</Link>
+                                                <Link className="nav-link" to="/de/health">Health</Link>
+                                                <Link className="nav-link" to="/de/science">Science</Link>
+                                                <Link className="nav-link" to="/de/sports">Sports</Link>
+                                                <Link className="nav-link " to="/de/business">Business</Link>
+                                                <Link className="nav-link" to="/de/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="/sports">
-                                            Sports
-                                        </Link>
+                                    <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Australia
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/au/technology">Technology</Link>
+                                                <Link className="nav-link" to="/au/health">Health</Link>
+                                                <Link className="nav-link" to="/au/science">Science</Link>
+                                                <Link className="nav-link" to="/au/sports">Sports</Link>
+                                                <Link className="nav-link " to="/au/business">Business</Link>
+                                                <Link className="nav-link" to="/au/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link " to="/technology">
-                                            Technology
-                                        </Link>
+                                    <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                China
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/cn/technology">Technology</Link>
+                                                <Link className="nav-link" to="/cn/health">Health</Link>
+                                                <Link className="nav-link" to="/cn/science">Science</Link>
+                                                <Link className="nav-link" to="/cn/sports">Sports</Link>
+                                                <Link className="nav-link " to="/cn/business">Business</Link>
+                                                <Link className="nav-link" to="/cn/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li className="nav-item">
+                                    <div class="dropdown">
+                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Saudi Arabia
+                                            </Link>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <Link className="nav-link" to="/sa/technology">Technology</Link>
+                                                <Link className="nav-link" to="/sa/health">Health</Link>
+                                                <Link className="nav-link" to="/sa/science">Science</Link>
+                                                <Link className="nav-link" to="/sa/sports">Sports</Link>
+                                                <Link className="nav-link " to="/sa/business">Business</Link>
+                                                <Link className="nav-link" to="/sa/entertainment">Entertainment</Link>
+                                            </ul>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </nav>
                 </div>
-                
+
             </div>
 
-            
+
 
 
         )

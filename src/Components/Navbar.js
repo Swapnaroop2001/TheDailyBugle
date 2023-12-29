@@ -26,7 +26,7 @@ export default class Navbar extends Component {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <p><b>{this.state.formattedDate}</b></p>
-                            <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div className="offcanvas offcanvas-start" data-bs-scroll="true"  tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div className="offcanvas-header">
                                     <h5 className="offcanvas-title" id="offcanvasNavbarLabel"> Select Country</h5>
                                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -56,7 +56,7 @@ export default class Navbar extends Component {
                                                 Languages
                                             </a>
                                             <ul className="dropdown-menu">
-                                                <Link><a className="dropdown-item" to="/us/spanish">Spanish</a></Link>
+                                                <li><a className="dropdown-item" to="/us/spanish">Spanish</a></li>
                                                 <li><a className="dropdown-item" href="#">French</a></li>
                                                 <li><a className="dropdown-item" href="#">Chinese</a></li>
                                                 <li>
@@ -92,11 +92,11 @@ export default class Navbar extends Component {
                             <div className="collapse navbar-collapse " id="navbarNavDropdown" style={{ justifyContent: "center" }}>
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                    <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 US
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/us/technology">Technology</Link>
                                                 <Link className="nav-link" to="/us/health">Health</Link>
                                                 <Link className="nav-link" to="/us/science">Science</Link>
@@ -108,11 +108,11 @@ export default class Navbar extends Component {
                                     </li>
 
                                     <li className="nav-item">
-                                        <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 India
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/in/technology">Technology</Link>
                                                 <Link className="nav-link" to="/in/health">Health</Link>
                                                 <Link className="nav-link" to="/in/science">Science</Link>
@@ -126,11 +126,11 @@ export default class Navbar extends Component {
 
                                     </li>
                                     <li className="nav-item">
-                                    <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 UK
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/gb/technology">Technology</Link>
                                                 <Link className="nav-link" to="/gb/health">Health</Link>
                                                 <Link className="nav-link" to="/gb/science">Science</Link>
@@ -141,11 +141,11 @@ export default class Navbar extends Component {
                                         </div>
                                     </li>
                                     <li className="nav-item">
-                                    <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Germany
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/de/technology">Technology</Link>
                                                 <Link className="nav-link" to="/de/health">Health</Link>
                                                 <Link className="nav-link" to="/de/science">Science</Link>
@@ -156,11 +156,11 @@ export default class Navbar extends Component {
                                         </div>
                                     </li>
                                     <li className="nav-item">
-                                    <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Australia
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/au/technology">Technology</Link>
                                                 <Link className="nav-link" to="/au/health">Health</Link>
                                                 <Link className="nav-link" to="/au/science">Science</Link>
@@ -171,11 +171,11 @@ export default class Navbar extends Component {
                                         </div>
                                     </li>
                                     <li className="nav-item">
-                                    <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 China
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/cn/technology">Technology</Link>
                                                 <Link className="nav-link" to="/cn/health">Health</Link>
                                                 <Link className="nav-link" to="/cn/science">Science</Link>
@@ -186,11 +186,11 @@ export default class Navbar extends Component {
                                         </div>
                                     </li>
                                     <li className="nav-item">
-                                    <div class="dropdown">
-                                            <Link class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="dropdown">
+                                            <Link className="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Saudi Arabia
                                             </Link>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <Link className="nav-link" to="/sa/technology">Technology</Link>
                                                 <Link className="nav-link" to="/sa/health">Health</Link>
                                                 <Link className="nav-link" to="/sa/science">Science</Link>

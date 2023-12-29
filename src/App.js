@@ -8,6 +8,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Footer from './Components/Footer';
 
 export default class App extends Component {  
   render() {
@@ -91,7 +92,7 @@ export default class App extends Component {
           
           <Routes><Route exact path="/us/spnish" element={<News country="us" category="sports" language="de"/>} /></Routes>
 
-
+          
         </Router>
       </div>
     )

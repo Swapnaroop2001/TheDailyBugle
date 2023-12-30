@@ -150,7 +150,7 @@ export default class Navbar extends Component {
                                                 <Link className="nav-link" to="/de/health">Health</Link>
                                                 <Link className="nav-link" to="/de/science">Science</Link>
                                                 <Link className="nav-link" to="/de/sports">Sports</Link>
-                                                <Link className="nav-link " to="/de/business">Business</Link>
+                                                <Link className="nav-link" to="/de/business">Business</Link>
                                                 <Link className="nav-link" to="/de/entertainment">Entertainment</Link>
                                             </ul>
                                         </div>

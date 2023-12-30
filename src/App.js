@@ -53,7 +53,7 @@ export default class App extends Component {
           <Routes><Route exact path="/gb/sports" element={<News country="gb" category="sports" />} /></Routes>
           <Routes><Route exact path="/gb/business" element={<News country="gb" category="business" />} /></Routes>
           <Routes><Route exact path="/gb/science" element={<News country="gb" category="science" />} /></Routes>
-          <Routes><Route exact path="/gb/health" element={<News country="gb" category="health" />} /></Routes>
+          <Routes><Route exact path="/gb/health" element={<News country="gb" category="health"/>} /></Routes>
           <Routes><Route exact path="/gb/business" element={<News country="gb" category="business" />} /></Routes>
           <Routes><Route exact path="/gb/technology" element={<News country="gb" category="technology" />} /></Routes>
           <Routes><Route exact path="/gb/entertainment" element={<News country="gb" category="entertainment" />} /></Routes>

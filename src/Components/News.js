@@ -91,8 +91,8 @@ export default class News extends Component {
         console.log(articleArray);
 
         // Horizontal Card
-        for (let i = 0; i < ((this.state.A.length) * 3) / 4; i++) {
-            const Element = this.state.A[i];
+        for (let i = 0; i < Math.ceil(((articleArray.length) * 14) / 25); i++) {
+            const Element = articleArray[i];
             if (Element.url === "https://removed.com") {
                 continue;
             } else {
@@ -112,8 +112,8 @@ export default class News extends Component {
         }
 
         // Verticle Card
-        for (let i = ((this.state.A.length) * 3) / 4; i < this.state.A.length; i++) {
-            const element = this.state.A[i];
+        for (let i = Math.ceil(((articleArray.length) * 14) / 25); i < articleArray.length; i++) {
+            const element = articleArray[i];
             if (element.url === "https://removed.com") {
                 continue;
             } else {

@@ -5,10 +5,10 @@ export default class NewscardType2 extends Component {
     let { title, description, ImgUrl, url, date } = this.props;
     return (
       <div>
-        <div className="card" style={{ width: "18rem", paddingLeft:"0px",paddingTop:"0px", paddingBottom:"20px", borderColor:"white"}}>
-                    <img src={ImgUrl} style={{borderRadius:"0px"}} className="card-img-top" alt="..." />
+        <div className="card" style={{ width: "100%",height:"100%", marginLeft:"0px",marginTop:"0px", marginBottom:"20px", borderColor:"white",borderBottom: "2px solid #ccc"}}>
+                    <img src={ImgUrl} style={{width:"100%",height:"100%",borderRadius:"0px",boxShadow:"0 2px 10px rgba(0,0,0,0.2)",objectFit:"cover"}} className="card-img-top" alt="..." />
                     <div className="card-body" style={{ backgroundColor: "white",padding:"10px 5px 12px 5px" }}>
-                        <h4 className="card-title" style={{  fontFamily: "Newsreader", fontWeight:"600",fontSize:"100%" }}>{title}...</h4>
+                        <h4 className="card-title" style={{  fontFamily: "Newsreader", fontWeight:"600",fontSize:"120%" }}>{title}...</h4>
                         <p className="card-text" style={{ fontFamily: 'Newsreader' }}>{description}</p>
                         <p className="card-text" style={{ fontSize: "small", fontFamily: "serif" }} >{date}</p>
                         <a href={url} className="btn btn-outline-primary">Read more...</a>

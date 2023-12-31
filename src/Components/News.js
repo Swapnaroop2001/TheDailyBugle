@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import NewsCard from './NewsCrad'
 import PropTypes from 'prop-types'
 import NewscardType2 from './NewscardType2'
-
 export default class News extends Component {
 
 
@@ -22,6 +21,7 @@ export default class News extends Component {
     constructor() {
         super();
         this.state = {
+            loading: true,
             A: [],
             page: 1,
             currentDate: new Date(),
@@ -32,23 +32,26 @@ export default class News extends Component {
 
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
-        let data = await fetch(url);
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
+        let data = await fetch(url)
         let ParsedData = await data.json();
         this.setState({
             A: ParsedData.articles,
-            TR: ParsedData.totalResults
+            TR: ParsedData.totalResults,
+            loading: false
         })
     }
 
 
     NextBtn = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
+        this.setState({ loading: true })
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
             A: ParsedData.articles,
-            page: this.state.page + 1
+            page: this.state.page + 1,
+            loading: false
         })
         window.scrollTo({
             top: 0,
@@ -57,12 +60,14 @@ export default class News extends Component {
     }
 
     PrevBtn = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
+        this.setState({ loading: true })
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
             A: ParsedData.articles,
-            page: this.state.page - 1
+            page: this.state.page - 1,
+            loading: false
         })
         window.scrollTo({
             top: 0,
@@ -72,12 +77,10 @@ export default class News extends Component {
 
 
     render() {
-        if (!this.state.A) {
-            return null; // Or return an appropriate message or loading indicator
-        }
         const articleArray = [];
         const newsCards = [];
         const newsCards2 = [];
+        const PlaceHolder = [];
 
         for (let i = 0; i < this.state.A.length; i++) {
             const elem = this.state.A[i];
@@ -88,7 +91,6 @@ export default class News extends Component {
                 articleArray.push(elem);
             }
         }
-        console.log(articleArray);
 
         // Horizontal Card
         for (let i = 0; i < Math.ceil(((articleArray.length) * 14) / 25); i++) {
@@ -129,21 +131,41 @@ export default class News extends Component {
                         />
                     </div>
                 );
+
+                PlaceHolder.push(
+                    <div class="card" aria-hidden="true" style={{ borderColor: "white" }}>
+                        <div style={{ height: "200px", backgroundColor: "#d4d4d4" }}>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                                <span class="placeholder col-6"></span>
+                            </h5>
+                            <p class="card-text placeholder-glow">
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-6"></span>
+                                <span class="placeholder col-8"></span>
+                            </p>
+                            <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                        </div>
+                    </div>
+                )
             }
         }
 
         return (
             <div className='newssection'>
-                <div className='sections' style={{paddingLeft:"20px",paddingRight:"20px"}}>
-                <hr></hr>
-                <div className='row'>
-                        <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft:"-5px" }}>
+                <div className='sections' style={{ paddingLeft: "20px", paddingRight: "20px" }}>
+                    <div className='row'>
+                        <hr></hr>
+                        <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
                             {newsCards}
                         </div>
                         <div className='col-md-3'>
-                            {newsCards2}
+                            {this.state.loading ? PlaceHolder : newsCards2}
                         </div>
-                </div>
+                    </div>
                 </div>
 
                 <div className='container' style={{ display: "flex", justifyContent: "space-between" }}>

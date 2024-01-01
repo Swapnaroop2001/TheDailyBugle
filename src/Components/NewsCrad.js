@@ -12,7 +12,7 @@ export default class NewsCard extends Component {
                                 <h5 className="card-title" style={{ fontFamily: "Newsreader", fontWeight:"600",fontSize:"145%" }} >{title}</h5>
                                 <p className="card-text" style={{ fontFamily: "Newsreader" }}>{description}</p>
                                 <p className="card-text" style={{ fontSize: "small", fontFamily: "serif" }} >{date}</p>
-                                <a href={url} className="btn btn-outline-primary" style={{ fontFamily: "Newsreader" }}>Read more...</a>
+                                <a href={url} className="btn btn-outline-dark" style={{ fontFamily: "Newsreader" }}>Read more...</a>
                             </div>
                         </div>
                         <div className="col-md-7" style={{ padding:"0px 0px", marginLeft:"-10px", boxShadow:"0 2px 10px rgba(0,0,0,0.2)"}} >

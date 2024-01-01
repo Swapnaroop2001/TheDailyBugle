@@ -163,14 +163,14 @@ export default class News extends Component {
                             {newsCards}
                         </div>
                         <div className='col-md-3'>
-                            {this.state.loading ? PlaceHolder : newsCards2}
+                            {newsCards2}
                         </div>
                     </div>
                 </div>
 
                 <div className='container' style={{ display: "flex", justifyContent: "space-between" }}>
-                    <button type="button" className="btn btn-outline-dark btn-lg" disabled={this.state.page === 1} onClick={this.PrevBtn}>Previous</button>
-                    <button type="button" className="btn btn-outline-dark btn-lg" disabled={this.state.page === (Math.ceil(this.state.TR / 16))} onClick={this.NextBtn}>Next page..</button>
+                    <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === 1} onClick={this.PrevBtn}>Previous</button>
+                    <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16))} onClick={this.NextBtn}>Next page..</button>
                 </div>
             </div>
         );

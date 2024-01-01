@@ -28,7 +28,7 @@ export default class App extends Component {
 
           <Routes><Route exact path="/in" element={<News country="in" />} /></Routes>
           <Routes><Route exact path="/cn" element={<News country="cn" />} /></Routes>
-          <Routes><Route exact path="/gb" element={<News country="gb" />} /></Routes>
+          <Routes><Route exact path="/spanish" element={<News language="es" />} /></Routes>
           <Routes><Route exact path="/de" element={<News country="de" />} /></Routes>
           <Routes><Route exact path="/au" element={<News country="au" />} /></Routes>
           <Routes><Route exact path="/sa" element={<News country="sa" />} /></Routes>

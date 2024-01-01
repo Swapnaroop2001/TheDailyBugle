@@ -11,7 +11,7 @@ export default class NewscardType2 extends Component {
                         <h4 className="card-title" style={{  fontFamily: "Newsreader", fontWeight:"600",fontSize:"120%" }}>{title}...</h4>
                         <p className="card-text" style={{ fontFamily: 'Newsreader' }}>{description}</p>
                         <p className="card-text" style={{ fontSize: "small", fontFamily: "serif" }} >{date}</p>
-                        <a href={url} className="btn btn-outline-primary">Read more...</a>
+                        <a href={url} className="btn btn-outline-dark">Read more...</a>
                     </div>
                 </div>
       </div>

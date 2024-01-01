@@ -34,42 +34,14 @@ export default class Navbar extends Component {
                                 <div className="offcanvas-body">
                                     <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/gb" >United Kingdom</Link>
+                                            <Link className="nav-link active" aria-current="page" to="/spanish" >About</Link>
                                         </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/in" >India</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/de">Germany</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" to="/cn">China</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" to="/au">Australia</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" to="/sa">Saudi Arabia</Link>
-                                        </li>
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Languages
-                                            </a>
-                                            <ul className="dropdown-menu">
-                                                <li><a className="dropdown-item" to="/us/spanish">Spanish</a></li>
-                                                <li><a className="dropdown-item" href="#">French</a></li>
-                                                <li><a className="dropdown-item" href="#">Chinese</a></li>
-                                                <li>
-                                                    <hr className="dropdown-divider" />
-                                                </li>
-                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <form className="d-flex mt-3" role="search">
+                                        <form className="d-flex mt-3" role="search">
                                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                         <button className="btn btn-outline-success" type="submit">Search</button>
                                     </form>
+                                    </ul>
+                                    
                                 </div>
                             </div>
                         </div>

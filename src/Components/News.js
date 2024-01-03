@@ -10,13 +10,14 @@ export default class News extends Component {
         country: "us",
         category: 'general',
         language: "en",
-        city: "dallas"
+        city: "New York"
     }
 
     static propTypes = {
         country: PropTypes.string,
         category: PropTypes.string,
-        language: PropTypes.string
+        language: PropTypes.string,
+        city: PropTypes.string
     }
 
 
@@ -37,7 +38,7 @@ export default class News extends Component {
 
     async componentDidMount() {
         let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
-        let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
+        let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
         
         let data = await fetch(Newsurl)
         let Wdata= await fetch(Weatherurl);
@@ -97,11 +98,10 @@ export default class News extends Component {
         const WeatheUpdate = [];
 
         if (this.state.B && this.state.C && this.state.C.weather && this.state.C.weather.length > 0) {
-            const MainInfo = this.state.B.main;
-            const City = this.state.B.name;
             const weatherType = this.state.C.weather[0].main;
+            const cityName=this.state.C.name
             WeatheUpdate.push(weatherType)
-            console.log(weatherType);
+            console.log(cityName);
             
         } else {
             console.log("Weather data not available yet.");
@@ -173,7 +173,7 @@ export default class News extends Component {
                                                     temp={this.state.B.temp} 
                                                     Feels_like={this.state.B.feels_like} 
                                                     humidity={this.state.B.humidity}
-                                                    cityName={this.state.B.name}
+                                                    cityName={this.state.C.name}
                                                     WT={WeatheUpdate[0]}
                                                     />:""}
                             {newsCards2}

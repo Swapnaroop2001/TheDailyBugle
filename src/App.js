@@ -4,11 +4,10 @@ import Navbar from './Components/Navbar';
 import News from './Components/News';
 import {
   BrowserRouter as Router,
-  RouterProvider,
   Route,
   Routes
 } from "react-router-dom";
-import Footer from './Components/Footer';
+
 
 export default class App extends Component {  
   render() {

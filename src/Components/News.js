@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import NewsCard from './NewsCrad'
 import PropTypes from 'prop-types'
 import NewscardType2 from './NewscardType2'
+import Weather from './Weather'
 export default class News extends Component {
 
 
     static defaultProps = {
         country: "us",
         category: 'general',
-        language: "en"
+        language: "en",
+        city: "dallas"
     }
 
     static propTypes = {
@@ -23,6 +25,8 @@ export default class News extends Component {
         this.state = {
             loading: true,
             A: [],
+            B: [],
+            C: {},
             page: 1,
             currentDate: new Date(),
             TR: 0
@@ -32,14 +36,24 @@ export default class News extends Component {
 
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
-        let data = await fetch(url)
+        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
+        let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=dallas&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
+        
+        let data = await fetch(Newsurl)
+        let Wdata= await fetch(Weatherurl);
+
         let ParsedData = await data.json();
+        let ParsedDataW= await Wdata.json();
+        
         this.setState({
             A: ParsedData.articles,
+            B: ParsedDataW.main,
+            C: ParsedDataW,
+
             TR: ParsedData.totalResults,
             loading: false
-        })
+        }) 
+        
     }
 
 
@@ -80,7 +94,19 @@ export default class News extends Component {
         const articleArray = [];
         const newsCards = [];
         const newsCards2 = [];
-        const PlaceHolder = [];
+        const WeatheUpdate = [];
+
+        if (this.state.B && this.state.C && this.state.C.weather && this.state.C.weather.length > 0) {
+            const MainInfo = this.state.B.main;
+            const City = this.state.B.name;
+            const weatherType = this.state.C.weather[0].main;
+            WeatheUpdate.push(weatherType)
+            console.log(weatherType);
+            
+        } else {
+            console.log("Weather data not available yet.");
+        }
+
 
         for (let i = 0; i < this.state.A.length; i++) {
             const elem = this.state.A[i];
@@ -131,26 +157,6 @@ export default class News extends Component {
                         />
                     </div>
                 );
-
-                PlaceHolder.push(
-                    <div class="card" aria-hidden="true" style={{ borderColor: "white" }}>
-                        <div style={{ height: "200px", backgroundColor: "#d4d4d4" }}>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title placeholder-glow">
-                                <span class="placeholder col-6"></span>
-                                <span class="placeholder col-6"></span>
-                            </h5>
-                            <p class="card-text placeholder-glow">
-                                <span class="placeholder col-4"></span>
-                                <span class="placeholder col-4"></span>
-                                <span class="placeholder col-6"></span>
-                                <span class="placeholder col-8"></span>
-                            </p>
-                            <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-                        </div>
-                    </div>
-                )
             }
         }
 
@@ -163,6 +169,13 @@ export default class News extends Component {
                             {newsCards}
                         </div>
                         <div className='col-md-3'>
+                            {this.state.page==1? <Weather 
+                                                    temp={this.state.B.temp} 
+                                                    Feels_like={this.state.B.feels_like} 
+                                                    humidity={this.state.B.humidity}
+                                                    cityName={this.state.B.name}
+                                                    WT={WeatheUpdate[0]}
+                                                    />:""}
                             {newsCards2}
                         </div>
                     </div>

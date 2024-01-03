@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Placeholders extends Component {
+export default class Placeholders1 extends Component {
     render() {
         return (
             <div>

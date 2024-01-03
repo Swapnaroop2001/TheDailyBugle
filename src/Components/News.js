@@ -3,6 +3,8 @@ import NewsCard from './NewsCrad'
 import PropTypes from 'prop-types'
 import NewscardType2 from './NewscardType2'
 import Weather from './Weather'
+import Placeholders1 from './Placeholders1'
+import Placeholder2 from './Placeholder2'
 export default class News extends Component {
 
 
@@ -34,10 +36,11 @@ export default class News extends Component {
         }
     }
 
+    
 
 
     async componentDidMount() {
-        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
+        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
         let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
         
         let data = await fetch(Newsurl)
@@ -46,21 +49,22 @@ export default class News extends Component {
         let ParsedData = await data.json();
         let ParsedDataW= await Wdata.json();
         
-        this.setState({
-            A: ParsedData.articles,
-            B: ParsedDataW.main,
-            C: ParsedDataW,
-
-            TR: ParsedData.totalResults,
-            loading: false
-        }) 
+        setTimeout(() => {
+            this.setState({
+                A: ParsedData.articles,
+                B: ParsedDataW.main,
+                C: ParsedDataW,
+                TR: ParsedData.totalResults,
+                loading: false
+            });
+        }, 2500); 
         
     }
 
 
     NextBtn = async () => {
         this.setState({ loading: true })
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -76,7 +80,7 @@ export default class News extends Component {
 
     PrevBtn = async () => {
         this.setState({ loading: true })
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -119,7 +123,7 @@ export default class News extends Component {
         }
 
         // Horizontal Card
-        for (let i = 0; i < Math.ceil(((articleArray.length) * 14) / 25); i++) {
+        for (let i = 0; i < Math.ceil(((articleArray.length) * 3) / 5); i++) {
             const Element = articleArray[i];
             if (Element.url === "https://removed.com") {
                 continue;
@@ -140,7 +144,7 @@ export default class News extends Component {
         }
 
         // Verticle Card
-        for (let i = Math.ceil(((articleArray.length) * 14) / 25); i < articleArray.length; i++) {
+        for (let i = Math.ceil(((articleArray.length) * 3) / 5); i < articleArray.length; i++) {
             const element = articleArray[i];
             if (element.url === "https://removed.com") {
                 continue;
@@ -165,8 +169,9 @@ export default class News extends Component {
                 <div className='sections' style={{ paddingLeft: "20px", paddingRight: "20px" }}>
                     <div className='row'>
                         <hr></hr>
+                        
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                            {newsCards}
+                        {this.state.loading? <Placeholder2/>:newsCards}
                         </div>
                         <div className='col-md-3'>
                             {this.state.page==1? <Weather 
@@ -176,7 +181,7 @@ export default class News extends Component {
                                                     cityName={this.state.C.name}
                                                     WT={WeatheUpdate[0]}
                                                     />:""}
-                            {newsCards2}
+                            {this.state.loading? <Placeholders1/>:newsCards2}
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Placeholder2 from './Components/Placeholder2';
 
 
 export default class App extends Component {  

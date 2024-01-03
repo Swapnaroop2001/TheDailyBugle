@@ -19,10 +19,9 @@ export default class Weather extends Component {
             <div>
                 <div className="card" style={{width: "100%",Height:"100%",marginBottom:"15px" ,boxShadow:"0 2px 10px rgba(0,0,0,0.1)", borderColor:"white"}}>
                     <div className="card-body">
-
                         <h2 className="card-title" style={{textAlign:"center", fontFamily:"Newsreader",fontSize: "1.5rem", fontWeight: "revert", fontVariant: "small-caps" }}>Todays Weather</h2>
-                        <h6 className="card-subtitle mb-2 text-muted" style={{textAlign:"center"}}>{cityName}</h6>
                         <h1 className="card-text" style={{textAlign:"center"}}>{temp} °C</h1>
+                        <h6 className="card-subtitle mb-2 text-muted" style={{textAlign:"center"}}>{cityName}</h6>
                         <div className='container' style={{textAlign:"center"}}>
                             {weatherImage && <img src={weatherImage} style={{ height: '100%', width: '100%' }} alt={WT} />}
                         </div>

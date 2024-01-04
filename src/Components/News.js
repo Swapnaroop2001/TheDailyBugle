@@ -8,6 +8,8 @@ import Placeholder2 from './Placeholder2'
 import Placeholder3 from './Placeholder3'
 import Nv2 from './Nv2'
 export default class News extends Component {
+    
+    
 
     static defaultProps = {
         country: "us",
@@ -37,6 +39,8 @@ export default class News extends Component {
     }
 
     async componentDidMount() {
+        
+
         let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
         let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
 
@@ -102,10 +106,7 @@ export default class News extends Component {
 
         if (this.state.B && this.state.C && this.state.C.weather && this.state.C.weather.length > 0) {
             const weatherType = this.state.C.weather[0].main;
-            const cityName = this.state.C.name
             WeatheUpdate.push(weatherType)
-            console.log(cityName);
-
         }
 
         for (let i = 0; i < this.state.A.length; i++) {
@@ -129,7 +130,7 @@ export default class News extends Component {
                         <NewsCard
                             key={Element.url}
                             title={Element.title ? Element.title.slice(0, 200) : " "}
-                            description={Element.description ? Element.description.slice(0, 500) + "..." : " "}
+                            description={Element.description ? Element.description.slice(0, 600) + "..." : " "}
                             ImgUrl={Element.urlToImage ? Element.urlToImage : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK9oUzyyrkuzmPkDFcUqTv3lPKHQwxmLiAug&usqp=CAU"}
                             url={Element.url}
                             date={Element.publishedAt.slice(5, 10) + "-" + Element.publishedAt.slice(0, 4)}
@@ -166,10 +167,10 @@ export default class News extends Component {
                     <div className='row'>
                         <hr></hr>
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                            {this.state.loading ? <Placeholder2 /> : newsCards.length == 0 ? <Nv2 /> : newsCards}
+                            {this.state.loading ? <Placeholder2 /> : newsCards.length ===0 ? <Nv2 /> : newsCards}
                         </div>
                         <div className='col-md-3'>
-                            {this.state.loading && this.state.page == 1 ? <Placeholder3 /> : <Weather
+                            {this.state.loading && this.state.page === 1 ? <Placeholder3 /> : <Weather
                                 temp={this.state.B.temp}
                                 Feels_like={this.state.B.feels_like}
                                 humidity={this.state.B.humidity}
@@ -180,11 +181,15 @@ export default class News extends Component {
                         </div>
                     </div>
                 </div>
+                <br></br>
 
                 <div className='container' style={{ display: "flex", justifyContent: "space-between" }}>
                     <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === 1} onClick={this.PrevBtn}>Previous</button>
                     <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16)) || newsCards.length === 0} onClick={this.NextBtn}>Next page..</button>
                 </div>
+                <br></br>
+                
+
             </div>
         );
     }

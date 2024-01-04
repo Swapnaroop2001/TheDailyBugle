@@ -34,7 +34,7 @@ export default class Navbar extends Component {
                                 <div className="offcanvas-body">
                                     <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/spanish" >About</Link>
+                                            <Link className="nav-link active" aria-current="page" to="/about" >About</Link>
                                         </li>
                                         <form className="d-flex mt-3" role="search">
                                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

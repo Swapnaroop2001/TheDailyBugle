@@ -90,7 +90,7 @@ export default class Navbar extends Component {
                                                 <Link className="nav-link" to="/in/science">Science</Link>
                                                 <Link className="nav-link" to="/in/sports">Sports</Link>
                                                 <Link className="nav-link " to="/in/business">Business</Link>
-                                                <Link className="dropdown-item" to="/in/entertainment">Entertainment</Link>
+                                                <Link className="nav-link" to="/in/entertainment">Entertainment</Link>
                                             </ul>
                                         </div>
                                     </li>

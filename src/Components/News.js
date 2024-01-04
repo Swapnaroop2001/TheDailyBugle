@@ -58,7 +58,7 @@ export default class News extends Component {
                 TR: ParsedData.totalResults,
                 loading: false
             });
-        }, 2500);
+        }, 2000);
 
     }
 
@@ -101,9 +101,8 @@ export default class News extends Component {
         const newsCards = [];
         const newsCards2 = [];
         const WeatheUpdate = [];
-        const PH = []
-        console.log(PH);
-        
+
+
 
         if (this.state.B && this.state.C && this.state.C.weather && this.state.C.weather.length > 0) {
             const weatherType = this.state.C.weather[0].main;
@@ -143,7 +142,7 @@ export default class News extends Component {
                             date={Element.publishedAt.slice(5, 10) + "-" + Element.publishedAt.slice(0, 4)}
                         />
                     </div>
-                );
+                )
             }
         }
 
@@ -165,24 +164,6 @@ export default class News extends Component {
                         />
                     </div>
                 );
-                PH.push(
-                    <div className='cards' style={{ marginBottom: "15px", paddingBottom: "15px", borderBottom: "2px solid #ccc" }}>                            <div className="row ">
-                                <div className="col-md-5" >
-                                    <div className="card-body skeleton" style={{ paddingLeft: "0px", paddingTop: "2px" }}>
-                                        <span class="placeholder col-12"></span>
-                                        <span class="placeholder col-11"></span>
-                                        <span class="placeholder col-6"></span>
-                                        <span class="placeholder col-6"></span>
-                                        <span class="placeholder col-6"></span>
-                                    </div>
-                                </div>
-                                <div className="col-md-7" style={{ padding: "0px 0px", boxShadow: "0 2px 10px rgba(0,0,0,0.2)" }} >
-                                    <div className="card-img " src="" style={{ backgroundColor: "#edeef0", width: "100%", height: "320px", borderRadius: "0px", objectFit: "cover" }}></div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                )
             }
         }
 
@@ -191,22 +172,18 @@ export default class News extends Component {
                 <div className='sections' style={{ paddingLeft: "20px", paddingRight: "20px" }}>
                     <div className='row'>
                         <hr></hr>
-
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                            <Placeholder2/> 
-                            { newsCards}
+                            {this.state.loading? <Placeholder2/>:newsCards}
                         </div>
                         <div className='col-md-3'>
-                            <Placeholder3/>
-                            {this.state.page == 1 ? <Weather
+                            {this.state.loading && this.state.page == 1? <Placeholder3/>: <Weather
                                 temp={this.state.B.temp}
                                 Feels_like={this.state.B.feels_like}
                                 humidity={this.state.B.humidity}
                                 cityName={this.state.C.name}
                                 WT={WeatheUpdate[0]}
-                            /> : ""}
-                           <Placeholders1/>
-                            {newsCards2}
+                            />}
+                            {this.state.loading?  <Placeholders1/>:newsCards2}
                         </div>
                     </div>
                 </div>

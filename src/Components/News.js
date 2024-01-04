@@ -9,7 +9,6 @@ import Placeholder3 from './Placeholder3'
 import Nv2 from './Nv2'
 export default class News extends Component {
 
-
     static defaultProps = {
         country: "us",
         category: 'general',
@@ -24,7 +23,6 @@ export default class News extends Component {
         city: PropTypes.string
     }
 
-
     constructor() {
         super();
         this.state = {
@@ -37,9 +35,6 @@ export default class News extends Component {
             TR: 0
         }
     }
-
-
-
 
     async componentDidMount() {
         let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
@@ -171,24 +166,24 @@ export default class News extends Component {
                     <div className='row'>
                         <hr></hr>
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                            {this.state.loading? <Placeholder2/>:newsCards.length==0? <Nv2/>:newsCards}
+                            {this.state.loading ? <Placeholder2 /> : newsCards.length == 0 ? <Nv2 /> : newsCards}
                         </div>
                         <div className='col-md-3'>
-                            {this.state.loading && this.state.page == 1? <Placeholder3/>: <Weather
+                            {this.state.loading && this.state.page == 1 ? <Placeholder3 /> : <Weather
                                 temp={this.state.B.temp}
                                 Feels_like={this.state.B.feels_like}
                                 humidity={this.state.B.humidity}
                                 cityName={this.state.C.name}
                                 WT={WeatheUpdate[0]}
                             />}
-                            {this.state.loading?  <Placeholders1/>:newsCards2}
+                            {this.state.loading ? <Placeholders1 /> : newsCards2}
                         </div>
                     </div>
                 </div>
 
                 <div className='container' style={{ display: "flex", justifyContent: "space-between" }}>
                     <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === 1} onClick={this.PrevBtn}>Previous</button>
-                    <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16)) || newsCards.length===0} onClick={this.NextBtn}>Next page..</button>
+                    <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16)) || newsCards.length === 0} onClick={this.NextBtn}>Next page..</button>
                 </div>
             </div>
         );

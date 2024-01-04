@@ -6,7 +6,7 @@ import Weather from './Weather'
 import Placeholders1 from './Placeholders1'
 import Placeholder2 from './Placeholder2'
 import Placeholder3 from './Placeholder3'
-import Navbar from './Navbar'
+import Nv2 from './Nv2'
 export default class News extends Component {
 
 
@@ -42,7 +42,7 @@ export default class News extends Component {
 
 
     async componentDidMount() {
-        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
+        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
         let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
 
         let data = await fetch(Newsurl)
@@ -66,7 +66,7 @@ export default class News extends Component {
 
     NextBtn = async () => {
         this.setState({ loading: true })
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -82,7 +82,7 @@ export default class News extends Component {
 
     PrevBtn = async () => {
         this.setState({ loading: true })
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=b79cc641fca24f60b82db250210a261d&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page - 1}`;
         let data = await fetch(url);
         let ParsedData = await data.json();
         this.setState({
@@ -171,7 +171,7 @@ export default class News extends Component {
                     <div className='row'>
                         <hr></hr>
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                           
+                            {this.state.loading? <Placeholder2/>:newsCards.length==0? <Nv2/>:newsCards}
                         </div>
                         <div className='col-md-3'>
                             {this.state.loading && this.state.page == 1? <Placeholder3/>: <Weather
@@ -188,7 +188,7 @@ export default class News extends Component {
 
                 <div className='container' style={{ display: "flex", justifyContent: "space-between" }}>
                     <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === 1} onClick={this.PrevBtn}>Previous</button>
-                    <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16))} onClick={this.NextBtn}>Next page..</button>
+                    <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16)) || newsCards.length===0} onClick={this.NextBtn}>Next page..</button>
                 </div>
             </div>
         );

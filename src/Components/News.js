@@ -6,6 +6,7 @@ import Weather from './Weather'
 import Placeholders1 from './Placeholders1'
 import Placeholder2 from './Placeholder2'
 import Placeholder3 from './Placeholder3'
+import Navbar from './Navbar'
 export default class News extends Component {
 
 
@@ -110,10 +111,7 @@ export default class News extends Component {
             WeatheUpdate.push(weatherType)
             console.log(cityName);
 
-        } else {
-            console.log("Weather data not available yet.");
         }
-
 
         for (let i = 0; i < this.state.A.length; i++) {
             const elem = this.state.A[i];
@@ -173,7 +171,7 @@ export default class News extends Component {
                     <div className='row'>
                         <hr></hr>
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                            {this.state.loading? <Placeholder2/>:newsCards}
+                           
                         </div>
                         <div className='col-md-3'>
                             {this.state.loading && this.state.page == 1? <Placeholder3/>: <Weather

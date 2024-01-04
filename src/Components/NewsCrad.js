@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './NewscardType2.css';
 export default class NewsCard extends Component {
     render() {
         let { title, description, ImgUrl, url, date } = this.props;

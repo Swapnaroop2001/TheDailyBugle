@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './NewscardType2.css'; // Ensure correct path to your CSS file
 
 export default class NewscardType2 extends Component {
   render() {

@@ -23,7 +23,7 @@ export default class Weather extends Component {
                         <h1 className="card-text" style={{textAlign:"center"}}>{temp} °C</h1>
                         <h6 className="card-subtitle mb-2 text-muted" style={{textAlign:"center"}}>{cityName}</h6>
                         <div className='container' style={{textAlign:"center"}}>
-                            {weatherImage && <img src={weatherImage} style={{ height: '100%', width: '100%' }} alt={WT} />}
+                            {weatherImage && <img src={weatherImage} style={{ height: '100%', width: '60%' }} alt={WT} />}
                         </div>
                         <h4 className="card-text" style={{textAlign:"center"}}>{WT}</h4>
 

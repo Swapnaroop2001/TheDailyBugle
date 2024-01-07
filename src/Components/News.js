@@ -9,26 +9,28 @@ import Placeholder3 from './Placeholder3'
 import Nv2 from './Nv2'
 
 
+
+
 export default class News extends Component {
-    
-    
+
+
 
     static defaultProps = {
         country: "us",
         category: 'general',
         language: "en",
-        city: "New York"
+        city: "New York",
     }
 
     static propTypes = {
         country: PropTypes.string,
         category: PropTypes.string,
         language: PropTypes.string,
-        city: PropTypes.string
+        city: PropTypes.string,
     }
 
     constructor() {
-         let wrl=process.env.KEY2
+
         super();
         this.state = {
             loading: true,
@@ -42,9 +44,11 @@ export default class News extends Component {
     }
 
     async componentDidMount() {
-       
-        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
-        let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
+        let newsApiKey = process.env.REACT_APP_NEWS_API_KEY;
+        let weatherApiKey= process.env.REACT_APP_WEATHER_API_KEY;
+
+        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${newsApiKey}&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
+        let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=${weatherApiKey}`;
 
         let data = await fetch(Newsurl)
         let Wdata = await fetch(Weatherurl);
@@ -103,6 +107,7 @@ export default class News extends Component {
         const newsCards = [];
         const newsCards2 = [];
         const WeatheUpdate = [];
+
 
 
 
@@ -169,7 +174,7 @@ export default class News extends Component {
                     <div className='row'>
                         <hr></hr>
                         <div className='col-md-9' style={{ float: "left", borderRight: "2px solid #ccc", paddingLeft: "-5px" }}>
-                            {this.state.loading ? <Placeholder2 /> : newsCards.length ===0 ? <Nv2 /> : newsCards}
+                            {this.state.loading ? <Placeholder2 /> : newsCards.length === 0 ? <Nv2 /> : newsCards}
                         </div>
                         <div className='col-md-3'>
                             {this.state.loading && this.state.page === 1 ? <Placeholder3 /> : <Weather
@@ -190,7 +195,7 @@ export default class News extends Component {
                     <button type="button" className="btn btn-outline-white btn-dark" disabled={this.state.page === (Math.ceil(this.state.TR / 16)) || newsCards.length === 0} onClick={this.NextBtn}>Next page..</button>
                 </div>
                 <br></br>
-                
+
 
             </div>
         );

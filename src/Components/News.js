@@ -7,6 +7,8 @@ import Placeholders1 from './Placeholders1'
 import Placeholder2 from './Placeholder2'
 import Placeholder3 from './Placeholder3'
 import Nv2 from './Nv2'
+
+
 export default class News extends Component {
     
     
@@ -26,6 +28,7 @@ export default class News extends Component {
     }
 
     constructor() {
+         let wrl=process.env.KEY2
         super();
         this.state = {
             loading: true,
@@ -39,8 +42,7 @@ export default class News extends Component {
     }
 
     async componentDidMount() {
-        
-
+       
         let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
         let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=bef95bde8db1818b47396b77649e6741`;
 

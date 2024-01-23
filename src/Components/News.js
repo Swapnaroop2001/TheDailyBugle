@@ -47,7 +47,7 @@ export default class News extends Component {
         let newsApiKey = process.env.REACT_APP_NEWS_API_KEY;
         let weatherApiKey= process.env.REACT_APP_WEATHER_API_KEY;
 
-        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${newsApiKey}&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
+        let Newsurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=320aaeab33d048eeb5b2d62daeee030f&pagesize=16&language=${this.props.language}&category=${this.props.category}&page=${this.state.page}`;
         let Weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${this.props.city}&units=metric&appid=${weatherApiKey}`;
 
         let data = await fetch(Newsurl)

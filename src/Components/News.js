@@ -12,9 +12,6 @@ import Nv2 from './Nv2'
 
 
 export default class News extends Component {
-
-
-
     static defaultProps = {
         country: "us",
         category: 'general',
@@ -80,7 +77,7 @@ export default class News extends Component {
             loading: false
         })
         window.scrollTo({
-            top: 0,
+            top:0,
             behavior: 'auto'
         });
     }
@@ -138,7 +135,7 @@ export default class News extends Component {
                             key={Element.url}
                             title={Element.title ? Element.title.slice(0, 200) : " "}
                             description={Element.description ? Element.description.slice(0, 600) + "..." : " "}
-                            ImgUrl={Element.urlToImage ? Element.urlToImage : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK9oUzyyrkuzmPkDFcUqTv3lPKHQwxmLiAug&usqp=CAU"}
+                            ImgUrl={Element.urlToImage ? Element.urlToImage : "https://cdn1.vectorstock.com/i/1000x1000/76/00/news-icon-newspaper-symbol-flat-vector-6577600.jpg"}
                             url={Element.url}
                             date={Element.publishedAt.slice(5, 10) + "-" + Element.publishedAt.slice(0, 4)}
                         />

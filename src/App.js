@@ -90,7 +90,6 @@ export default class App extends Component {
           </div>
           <div className='container'>
            <Routes><Route exact path="/about" element={<About/>} /></Routes>
-           <Routes><Route exact path="/horoscope" element={<Horoscope/>} /></Routes>
           </div>
         </Router>
       </div>

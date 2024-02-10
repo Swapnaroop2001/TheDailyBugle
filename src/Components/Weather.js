@@ -1,20 +1,33 @@
 import React, { Component } from 'react'
+import Mist from '../images/mist.png'
+import Rain from '../images/rain.png'
+import Clear from '../images/clear.png'
+import Haze from '../images/haze.png'
+import Clouds from '../images/clouds.png'
+import Snow from '../images/snow.png'
+import Drizzle from '../images/drizzle.png'
+import Fog from "../images/fog.png"
+import Wind from "../images/wind.png"
+import Thunderstorm from "../images/thunderstorm.png"
+
 const weatherImages = {
-    Clear: '/clear.png',
-    Haze: '/haze.png',
-    Clouds: '/clouds.png',
-    Snow: '/snow.png',
-    Rain: '/rain.png',
-    Drizzle: '/drizzle.png',
-    Mist: '/mist.png',
-    Fog: '/fog.png',
-    Thunderstorm: '/thunderstorm.png',
+    Clear: Clear,
+    Haze: Haze,
+    Clouds: Clouds,
+    Snow: Snow,
+    Rain: Rain,
+    Drizzle: Drizzle,
+    Mist: Mist,
+    Fog: Fog,
+    Thunderstorm: Thunderstorm,
+    Smoke:Fog,
+    Wind: Wind
 };
 
 export default class Weather extends Component {
     render() {
         let { temp, Feels_like, humidity, cityName, WT } = this.props;
-        const weatherImage = weatherImages[WT];
+        const weatherImage = weatherImages[WT];       
         return (
             <div>
                 <div className="card" style={{width: "100%",Height:"100%",marginBottom:"15px" ,boxShadow:"0 2px 10px rgba(0,0,0,0.1)", borderColor:"white"}}>

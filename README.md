@@ -40,6 +40,6 @@ The Daily Bugle is built using modern web technologies, ensuring a seamless and 
 
 ## Feedback and Contributions
 
-We welcome your feedback to improve The Daily Bugle. If you have suggestions, find bugs, or want to contribute to the project, please feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/your-username/the-daily-bugle).
+We welcome your feedback to improve The Daily Bugle. If you have suggestions, find bugs, or want to contribute to the project, please feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/Swapnaroop2001/TheDailyBugle).
 
 Thank you for choosing The Daily Bugle for your daily news and weather updates!

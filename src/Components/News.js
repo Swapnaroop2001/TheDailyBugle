@@ -108,7 +108,7 @@ export default class News extends Component {
 
 
 
-        if (this.state.B && this.state.C && this.state.C.weather && this.state.C.weather.length > 0) {
+        if (this.state?.C?.weather?.length > 0) {
             const weatherType = this.state.C.weather[0].main;
             WeatheUpdate.push(weatherType)
         }

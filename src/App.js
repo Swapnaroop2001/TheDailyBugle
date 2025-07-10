@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import About from './Components/About';
 import Horoscope from './Components/Horoscope';
+import Footer from './Components/Footer';
 
 
 export default class App extends Component { 
@@ -25,12 +26,12 @@ export default class App extends Component {
           <Navbar/>
           <Routes><Route exact path="/" element={<News category="general" />} /></Routes>
         
-          {/* <Routes><Route exact path="/in" element={<News  Napi={this.newsapi} country="in" />} /></Routes>
+          <Routes><Route exact path="/in" element={<News  Napi={this.newsapi} country="in" />} /></Routes>
           <Routes><Route exact path="/cn" element={<News  Napi={this.newsapi} country="cn" />} /></Routes>
           <Routes><Route exact path="/spanish" element={<News language="es" />} /></Routes>
           <Routes><Route exact path="/de" element={<News  Napi={this.newsapi} country="de" />} /></Routes>
           <Routes><Route exact path="/au" element={<News  Napi={this.newsapi} country="au" />} /></Routes>
-          <Routes><Route exact path="/sa" element={<News  Napi={this.newsapi} country="sa" />} /></Routes> */}
+          <Routes><Route exact path="/sa" element={<News  Napi={this.newsapi} country="sa" />} /></Routes>
 
 
           
@@ -92,6 +93,8 @@ export default class App extends Component {
            <Routes><Route exact path="/about" element={<About/>} /></Routes>
           </div>
         </Router>
+
+        <Footer/>
       </div>
     )
   }
